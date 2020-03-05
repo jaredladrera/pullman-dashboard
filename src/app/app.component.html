@@ -1,5 +1,8 @@
 
-<div class="wrapper">
+
+
+
+<div class="wrapper" *ngIf="loginStatus; else login"> 
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header text-center">
@@ -8,10 +11,8 @@
             </div>
 
             <ul class="list-unstyled components">
-                <!-- <p>Dummy Heading</p> -->
 
-                <li>
-                    
+                <li>                   
                     <a href="#"><i class="fas fa-home"></i> Home</a>
                 </li>
                 <li class="active">
@@ -46,12 +47,40 @@
    
             <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="#" class="download">Sample</a>
+                    <a href="#" class="download" data-toggle="modal" data-target="#myModal">Sample Modal</a>
+
+                    <!-- The Modal -->
+                    <div class="modal" id="myModal">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                    
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                            <h4 class="modal-title">Modal Heading</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                    
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                modal body
+                            </div>
+                    
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                    
+                        </div>
+                        </div>
+                    </div>
+
+
                 </li>
+
             </ul>
         </nav>
 
-        <!-- Page Content Holder -->
+
         <div id="content">
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light mt-0">
@@ -81,5 +110,19 @@
             </div>
 
         </div>
+
+
+
+
     </div>
+
+    <ng-template #login>
+        <div id="wrapper">
+            <div class="container-fluid">
+                <app-login></app-login>
+            </div>
+
+        </div>
+    </ng-template>
+    
 

@@ -13,6 +13,7 @@ export class AppComponent {
   today = new Date();
   current: any;
   timeNow: any;
+  loginStatus: boolean = true;
 
  formatAMPM = (date) => {
   var hours = date.getHours();
@@ -32,4 +33,5 @@ export class AppComponent {
       this.timeNow = this.formatAMPM(new Date);
     }, 100);
   }
+
 }

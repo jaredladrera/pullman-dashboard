@@ -52,11 +52,15 @@ a, a:hover, a:focus {
     SIDEBAR STYLE
 ----------------------------------------------------- */
 
+#myModal{
+    color: #273036 !important;
+}
+
 .wrapper {
     display: flex;
     width: 100%;
     align-items: stretch;
-    perspective: 1500px;
+    
 }
 
 
@@ -91,7 +95,7 @@ a, a:hover, a:focus {
     padding: 10px;
 }
 
-#sidebar ul li a {
+#sidebar ul li a{
     padding: 10px;
     font-size: 1em;
     display: block;

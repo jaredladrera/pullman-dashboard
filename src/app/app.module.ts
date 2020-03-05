@@ -12,6 +12,7 @@ import { SoftwareUpdateComponent } from './components/software-update/software-u
 import { SoftwareUploadComponent } from './components/software-upload/software-upload.component';
 import { RobotStatusComponent } from './components/robot-status/robot-status.component';
 import { ChartsModule } from 'ng2-charts';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ChartsModule } from 'ng2-charts';
     SurveyComponent,
     SoftwareUpdateComponent,
     SoftwareUploadComponent,
-    RobotStatusComponent
+    RobotStatusComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
