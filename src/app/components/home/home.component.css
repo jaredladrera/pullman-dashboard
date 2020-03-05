@@ -1,6 +1,6 @@
 p {
     margin: 1rem;
 }
-.card {
+.card .card {
     border-left: 3px solid #85C1E9;
 }

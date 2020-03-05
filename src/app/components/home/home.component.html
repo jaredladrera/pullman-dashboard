@@ -1,90 +1,997 @@
-<h2 class="text-primary">Home</h2>
-<hr>
-
-
-
 <div class="row">
+    <div class="col-lg-6">
+        
+        <h3 class="page-header">Today's Overall Summary</h3>
 
+    </div>
+    <div class="col-lg-6 d-flex justify-content-end"> 
 
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-          <div class="card-body">
-            <div class="row no-gutters align-items-center">
-              <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-              </div>
-              <div class="col-auto">
-                <i class="fas fa-calendar fa-2x text-gray-300"></i>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ul class="nav navbar-top-links ">
+            <li class="dropdown">
+                <br>
+                <label>BRANCH</label>
+                <select class="form-control" name="branch_id" id="branch_id">
+                <option value="">ALL</option>
+                <option value="">Aura</option>
+                <option value="">Megamall</option>
+                </select>
+
+                <!-- /.dropdown-user -->
+            </li>
+            </ul>&nbsp; &nbsp;
+        <ul class="nav navbar-top-links ">
+            <li class="dropdown">
+                <br>
+                <label>SERIAL NUMBER</label>
+                <select class="form-control" name="SN" id="SN">
+                <option value="" >ALL</option>
+                 </select>
+                <!-- /.dropdown-user -->
+            </li>
+            </ul>
+            
+     
+
     </div>
-    
-    <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-success shadow h-100 py-2">
+</div>
+<br>
+<div class="row">
+    <div class="col col-lg-12">
+
+        <div class="card">
             <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings (Annual)</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-info shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
-                        <div class="row no-gutters align-items-center">
-                            <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+
+                                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#home">by Day Data</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#menu1">by Month Data</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#menu2">by Year Data</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#menu3">by Custom Data</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+
+                        <div id="home" class="container-fluid tab-pane active"><br>
+                           
+                           
+                            <div class="row">
+
+                                <div class="col-lg-3">
+                                <label>Date</label><br>
+                                    <input class="form-control" type="date" name="day_date" max="" id ="day_date" ><br><br>         
+                                </div>
+                                <div class="col-lg-3">
+                                </div>
+                                <div class="col-lg-3">
+                                </div>
+                                
+                                <div class="col-lg-3" style="float: right;">
+                              <br>
+                                <button type= "button" id="download_day" class="btn btn-primary">Download Report</button>&nbsp;
+                                    <button   id="btn_day" name="day_submit" class="btn btn-primary">Execute</button> 
+                                </div>
+
                             </div>
-                            <div class="col">
-                                <div class="progress progress-sm mr-2">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 50%"
-                                        aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+
+                            <div class="row">
+                                <div class="col col-md-6">
+
+                                    <div class="card shadow mb-6">
+                                        <div class="card-header py-3">
+                                            <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="chart-area">
+                                                <div style="display: block">
+                                                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                                                        [legend]="barChartLegend" [chartType]="barChartType">
+                                                    </canvas>
+                                                </div>
+                                    
+                                            </div>
+                                            <hr>
+                                            Styling for the area chart can be found in the <code>/js/demo/chart-area-demo.js</code> file.
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <br>
+                                <div class="col col-md-6">
+                                
+                                    <div class="row" >
+                                    <div class="col col-sm-6">
+
+                                        <div class="card border-left-primary shadow h-100 py-2">
+                                            <div class="card-body">
+                                              <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total search Store</div>
+                                                  <div class="h5 mb-0 font-weight-bold text-gray-800">63</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-shopping-cart fa-3x text-info-300"></i>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          
+
+                                          <br>
+                                    </div>
+                                    <!-- end col-sm-6 -->
+                                    <div class="col col-sm-6">
+
+                                        <div class="card border-left-primary shadow h-100 py-2">
+                                            <div class="card-body">
+                                              <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Face Detect</div>
+                                                  <div class="h5 mb-0 font-weight-bold text-gray-800">23</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-diagnoses fa-3x"></i>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                     
+
+                                    </div>
+                                    
+                                    </div>    
+                                    <!-- end of row -->
+                                    <br>
+
+                                    <div class="row">
+                                        <div class="col col-sm-6">
+    
+                                            <div class="card border-left-primary shadow h-100 py-2">
+                                                <div class="card-body">
+                                                  <div class="row no-gutters align-items-center">
+                                                    <div class="col mr-2">
+                                                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Query asked</div>
+                                                      <div class="h5 mb-0 font-weight-bold text-gray-800">40</div>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <i class="fas fa-robot fa-3x"></i>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+    
+                                              
+    
+                                              <br>
+                                        </div>
+                                        <!-- end col-sm-6 -->
+                                        <div class="col col-sm-6">
+    
+                                            <div class="card border-left-primary shadow h-100 py-2">
+                                                <div class="card-body">
+                                                  <div class="row no-gutters align-items-center">
+                                                    <div class="col mr-2">
+                                                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Spin Count</div>
+                                                      <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <i class="fas fa-gamepad fa-3x"></i>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+    
+                                         
+    
+                                        </div>
+                                        
+                                        </div>    
+                                        <!-- end of row -->
+                                        <br>
+                                        <div class="row" >
+                                            <div class="col col-sm-6">
+        
+                                                <div class="card border-left-primary shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                      <div class="row no-gutters align-items-center">
+                                                        <div class="col mr-2">
+                                                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Video Watched</div>
+                                                          <div class="h5 mb-0 font-weight-bold text-gray-800">320</div>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                            <i class="fas fa-play fa-3x"></i>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+        
+                                                  
+        
+                                                  <br>
+                                            </div>
+                                            <!-- end col-sm-6 -->
+                                            <div class="col col-sm-6">
+        
+                                                <div class="card border-left-primary shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                      <div class="row no-gutters align-items-center">
+                                                        <div class="col mr-2">
+                                                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Mall event visit</div>
+                                                          <div class="h5 mb-0 font-weight-bold text-gray-800">15</div>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                          <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+        
+                                             
+        
+                                            </div>
+                                            
+                                            </div>    
+                                            <!-- end of row -->
+                                            <br>
+
+                                            <div class="row" >
+                                                <div class="col col-sm-6">
+            
+                                                    <div class="card border-left-primary shadow h-100 py-2">
+                                                        <div class="card-body">
+                                                          <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Movies Visit</div>
+                                                              <div class="h5 mb-0 font-weight-bold text-gray-800">8</div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <i class="fas fa-ticket-alt fa-3x"></i>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+            
+                                                      
+            
+                                                      <br>
+                                                </div>
+                                                <!-- end col-sm-6 -->
+            
+                                                
+                                                </div>    
+                                                <!-- end of row -->
+
+                                    
+                                </div>
+                            </div>
+                               
+                            
+
+                        </div> 
+                        <!-- end by day -->
+
+
+
+                        <div id="menu1" class="container-fluid tab-pane fade"><br>
+
+                            <div class="row">
+
+                                <div class="col-lg-3">
+                                        <label>Month</label><br>
+                                        <select class="form-control" id="sel1">
+                                            <option>January</option>
+                                            <option>February</option>
+                                            <option>March</option>
+                                            <option>April</option>
+                                            <option>May</option>
+                                            <option>June</option>
+                                            <option>July</option>
+                                            <option>August</option>
+                                            <option>September</option>
+                                            <option>October</option>
+                                            <option>November</option>
+                                            <option>December</option>
+                                        </select>        
+                                </div>
+                                <div class="col-lg-3">
+                                    <label>Year</label><br>
+                                    <select class="form-control" id="sel1">
+                                        <option>2018</option>
+                                        <option>2019</option>
+                                        <option>2020</option>
+                                        <option>2021</option>
+                                        <option>2022</option>
+                                        <option>2023</option>
+                                        <option>2024</option>
+                                        <option>2025</option>
+                                        <option>2026</option>
+                                        <option>2027</option>
+                                        <option>2028</option>
+                                        <option>2029</option>
+                                    </select>   
+                                    <br>
+                                </div>
+                                <div class="col-lg-3">
+                                </div>
+                                
+                                <div class="col-lg-3" style="float: right;">
+                              <br>
+                                <button type= "button" id="download_day" class="btn btn-primary">Download Report</button>&nbsp;
+                                    <button   id="btn_day" name="day_submit" class="btn btn-primary">Execute</button> 
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col col-md-6">
+
+                                    <div class="card shadow mb-6">
+                                        <div class="card-header py-3">
+                                            <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="chart-area">
+                                                <div style="display: block">
+                                                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                                                        [legend]="barChartLegend" [chartType]="barChartType">
+                                                    </canvas>
+                                                </div>
+                                    
+                                            </div>
+                                            <hr>
+                                            Styling for the area chart can be found in the <code>/js/demo/chart-area-demo.js</code> file.
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <br>
+                                <div class="col col-md-6">
+                                
+                                    <div class="row" >
+                                    <div class="col col-sm-6">
+
+                                        <div class="card border-left-primary shadow h-100 py-2">
+                                            <div class="card-body">
+                                              <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total search Store</div>
+                                                  <div class="h5 mb-0 font-weight-bold text-gray-800">63</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-shopping-cart fa-3x text-info-300"></i>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          
+
+                                          <br>
+                                    </div>
+                                    <!-- end col-sm-6 -->
+                                    <div class="col col-sm-6">
+
+                                        <div class="card border-left-primary shadow h-100 py-2">
+                                            <div class="card-body">
+                                              <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Face Detect</div>
+                                                  <div class="h5 mb-0 font-weight-bold text-gray-800">23</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-diagnoses fa-3x"></i>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                     
+
+                                    </div>
+                                    
+                                    </div>    
+                                    <!-- end of row -->
+                                    <br>
+
+                                    <div class="row">
+                                        <div class="col col-sm-6">
+    
+                                            <div class="card border-left-primary shadow h-100 py-2">
+                                                <div class="card-body">
+                                                  <div class="row no-gutters align-items-center">
+                                                    <div class="col mr-2">
+                                                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Query asked</div>
+                                                      <div class="h5 mb-0 font-weight-bold text-gray-800">40</div>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <i class="fas fa-robot fa-3x"></i>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+    
+                                              
+    
+                                              <br>
+                                        </div>
+                                        <!-- end col-sm-6 -->
+                                        <div class="col col-sm-6">
+    
+                                            <div class="card border-left-primary shadow h-100 py-2">
+                                                <div class="card-body">
+                                                  <div class="row no-gutters align-items-center">
+                                                    <div class="col mr-2">
+                                                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Spin Count</div>
+                                                      <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <i class="fas fa-gamepad fa-3x"></i>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+    
+                                         
+    
+                                        </div>
+                                        
+                                        </div>    
+                                        <!-- end of row -->
+                                        <br>
+                                        <div class="row" >
+                                            <div class="col col-sm-6">
+        
+                                                <div class="card border-left-primary shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                      <div class="row no-gutters align-items-center">
+                                                        <div class="col mr-2">
+                                                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Video Watched</div>
+                                                          <div class="h5 mb-0 font-weight-bold text-gray-800">320</div>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                            <i class="fas fa-play fa-3x"></i>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+        
+                                                  
+        
+                                                  <br>
+                                            </div>
+                                            <!-- end col-sm-6 -->
+                                            <div class="col col-sm-6">
+        
+                                                <div class="card border-left-primary shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                      <div class="row no-gutters align-items-center">
+                                                        <div class="col mr-2">
+                                                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Mall event visit</div>
+                                                          <div class="h5 mb-0 font-weight-bold text-gray-800">15</div>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                          <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+        
+                                             
+        
+                                            </div>
+                                            
+                                            </div>    
+                                            <!-- end of row -->
+
+                                            <br>
+
+                                            <div class="row" >
+                                                <div class="col col-sm-6">
+            
+                                                    <div class="card border-left-primary shadow h-100 py-2">
+                                                        <div class="card-body">
+                                                          <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Movies Visit</div>
+                                                              <div class="h5 mb-0 font-weight-bold text-gray-800">8</div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <i class="fas fa-ticket-alt fa-3x"></i>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+            
+                                                      
+            
+                                                      <br>
+                                                </div>
+                                                <!-- end col-sm-6 -->
+            
+                                                
+                                                </div>    
+                                                <!-- end of row -->
+
+                                              
+
+                                                
+
+                                    
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <!-- end of by month -->
+                        <div id="menu2" class="container-fluid tab-pane fade"><br>
+                            <div class="row">
+
+                                <div class="col-lg-3">
+                                    <label>Year</label><br>
+                                    <select class="form-control" id="sel1">
+                                        <option>2018</option>
+                                        <option>2019</option>
+                                        <option>2020</option>
+                                        <option>2021</option>
+                                        <option>2022</option>
+                                        <option>2023</option>
+                                        <option>2024</option>
+                                        <option>2025</option>
+                                        <option>2026</option>
+                                        <option>2027</option>
+                                        <option>2028</option>
+                                        <option>2029</option>
+                                    </select>   <br>      
+                                </div>
+                                <div class="col-lg-3">
+                           
+                                </div>
+                                <div class="col-lg-3">
+                                </div>
+                                
+                                <div class="col-lg-3" style="float: right;">
+                              <br>
+                                <button type= "button" id="download_day" class="btn btn-primary">Download Report</button>&nbsp;
+                                    <button   id="btn_day" name="day_submit" class="btn btn-primary">Execute</button> 
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col col-md-6">
+
+                                    <div class="card shadow mb-6">
+                                        <div class="card-header py-3">
+                                            <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="chart-area">
+                                                <div style="display: block">
+                                                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                                                        [legend]="barChartLegend" [chartType]="barChartType">
+                                                    </canvas>
+                                                </div>
+                                    
+                                            </div>
+                                            <hr>
+                                            Styling for the area chart can be found in the <code>/js/demo/chart-area-demo.js</code> file.
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <br>
+                                <div class="col col-md-6">
+                                
+                                    <div class="row" >
+                                    <div class="col col-sm-6">
+
+                                        <div class="card border-left-primary shadow h-100 py-2">
+                                            <div class="card-body">
+                                              <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total search Store</div>
+                                                  <div class="h5 mb-0 font-weight-bold text-gray-800">63</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-shopping-cart fa-3x text-info-300"></i>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          
+
+                                          <br>
+                                    </div>
+                                    <!-- end col-sm-6 -->
+                                    <div class="col col-sm-6">
+
+                                        <div class="card border-left-primary shadow h-100 py-2">
+                                            <div class="card-body">
+                                              <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Face Detect</div>
+                                                  <div class="h5 mb-0 font-weight-bold text-gray-800">23</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-diagnoses fa-3x"></i>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                     
+
+                                    </div>
+                                    
+                                    </div>    
+                                    <!-- end of row -->
+                                    <br>
+
+                                    <div class="row">
+                                        <div class="col col-sm-6">
+    
+                                            <div class="card border-left-primary shadow h-100 py-2">
+                                                <div class="card-body">
+                                                  <div class="row no-gutters align-items-center">
+                                                    <div class="col mr-2">
+                                                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Query asked</div>
+                                                      <div class="h5 mb-0 font-weight-bold text-gray-800">40</div>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <i class="fas fa-robot fa-3x"></i>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+    
+                                              
+    
+                                              <br>
+                                        </div>
+                                        <!-- end col-sm-6 -->
+                                        <div class="col col-sm-6">
+    
+                                            <div class="card border-left-primary shadow h-100 py-2">
+                                                <div class="card-body">
+                                                  <div class="row no-gutters align-items-center">
+                                                    <div class="col mr-2">
+                                                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Spin Count</div>
+                                                      <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <i class="fas fa-gamepad fa-3x"></i>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+    
+                                         
+    
+                                        </div>
+                                        
+                                        </div>    
+                                        <!-- end of row -->
+                                        <br>
+                                        <div class="row" >
+                                            <div class="col col-sm-6">
+        
+                                                <div class="card border-left-primary shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                      <div class="row no-gutters align-items-center">
+                                                        <div class="col mr-2">
+                                                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Video Watched</div>
+                                                          <div class="h5 mb-0 font-weight-bold text-gray-800">320</div>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                            <i class="fas fa-play fa-3x"></i>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+        
+                                                  
+        
+                                                  <br>
+                                            </div>
+                                            <!-- end col-sm-6 -->
+                                            <div class="col col-sm-6">
+        
+                                                <div class="card border-left-primary shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                      <div class="row no-gutters align-items-center">
+                                                        <div class="col mr-2">
+                                                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Mall event visit</div>
+                                                          <div class="h5 mb-0 font-weight-bold text-gray-800">15</div>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                          <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+        
+                                             
+        
+                                            </div>
+                                            
+                                            </div>    
+                                            <!-- end of row -->
+                                            <br>
+                                            <div class="row" >
+                                                <div class="col col-sm-6">
+            
+                                                    <div class="card border-left-primary shadow h-100 py-2">
+                                                        <div class="card-body">
+                                                          <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Movies Visit</div>
+                                                              <div class="h5 mb-0 font-weight-bold text-gray-800">8</div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <i class="fas fa-ticket-alt fa-3x"></i>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+            
+                                                      
+            
+                                                      <br>
+                                                </div>
+                                                <!-- end col-sm-6 -->
+            
+                                                
+                                                </div>    
+                                                <!-- end of row -->
+
+                                    
+                                </div>
+                            </div>
+                               
+
+                        </div>
+                           <!-- END OF BY YEAR DATA  -->
+                            
+            
+
+                        <div id="menu3" class="container-fluid tab-pane fade"><br>
+                                
+                            <div class="row">
+
+                                <div class="col-lg-3">
+                                <label>Start Date</label><br>
+                                    <input class="form-control" type="date" name="day_date" max="" id ="day_date" ><br><br>         
+                                </div>
+                                <div class="col-lg-3">
+                                    <label>End Date</label><br>
+                                    <input class="form-control" type="date" name="day_date" max="" id ="day_date" ><br><br>   
+                                </div>
+                                <div class="col-lg-3">
+                                </div>
+                                
+                                <div class="col-lg-3" style="float: right;">
+                              <br>
+                                <button type= "button" id="download_day" class="btn btn-primary">Download Report</button>&nbsp;
+                                    <button   id="btn_day" name="day_submit" class="btn btn-primary">Execute</button> 
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col col-md-6">
+
+                                    <div class="card shadow mb-6">
+                                        <div class="card-header py-3">
+                                            <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="chart-area">
+                                                <div style="display: block">
+                                                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                                                        [legend]="barChartLegend" [chartType]="barChartType">
+                                                    </canvas>
+                                                </div>
+                                    
+                                            </div>
+                                            <hr>
+                                            Styling for the area chart can be found in the <code>/js/demo/chart-area-demo.js</code> file.
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <br>
+                                <div class="col col-md-6">
+                                
+                                    <div class="row" >
+                                    <div class="col col-sm-6">
+
+                                        <div class="card border-left-primary shadow h-100 py-2">
+                                            <div class="card-body">
+                                              <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total search Store</div>
+                                                  <div class="h5 mb-0 font-weight-bold text-gray-800">63</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-shopping-cart fa-3x text-info-300"></i>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          
+
+                                          <br>
+                                    </div>
+                                    <!-- end col-sm-6 -->
+                                    <div class="col col-sm-6">
+
+                                        <div class="card border-left-primary shadow h-100 py-2">
+                                            <div class="card-body">
+                                              <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Face Detect</div>
+                                                  <div class="h5 mb-0 font-weight-bold text-gray-800">23</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-diagnoses fa-3x"></i>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                     
+
+                                    </div>
+                                    
+                                    </div>    
+                                    <!-- end of row -->
+                                    <br>
+
+                                    <div class="row">
+                                        <div class="col col-sm-6">
+    
+                                            <div class="card border-left-primary shadow h-100 py-2">
+                                                <div class="card-body">
+                                                  <div class="row no-gutters align-items-center">
+                                                    <div class="col mr-2">
+                                                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Query asked</div>
+                                                      <div class="h5 mb-0 font-weight-bold text-gray-800">40</div>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <i class="fas fa-robot fa-3x"></i>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+    
+                                              
+    
+                                              <br>
+                                        </div>
+                                        <!-- end col-sm-6 -->
+                                        <div class="col col-sm-6">
+    
+                                            <div class="card border-left-primary shadow h-100 py-2">
+                                                <div class="card-body">
+                                                  <div class="row no-gutters align-items-center">
+                                                    <div class="col mr-2">
+                                                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Spin Count</div>
+                                                      <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <i class="fas fa-gamepad fa-3x"></i>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+    
+                                         
+    
+                                        </div>
+                                        
+                                        </div>    
+                                        <!-- end of row -->
+                                        <br>
+                                        <div class="row" >
+                                            <div class="col col-sm-6">
+        
+                                                <div class="card border-left-primary shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                      <div class="row no-gutters align-items-center">
+                                                        <div class="col mr-2">
+                                                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Video Watched</div>
+                                                          <div class="h5 mb-0 font-weight-bold text-gray-800">320</div>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                            <i class="fas fa-play fa-3x"></i>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+        
+                                                  
+        
+                                                  <br>
+                                            </div>
+                                            <!-- end col-sm-6 -->
+                                            <div class="col col-sm-6">
+        
+                                                <div class="card border-left-primary shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                      <div class="row no-gutters align-items-center">
+                                                        <div class="col mr-2">
+                                                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Mall event visit</div>
+                                                          <div class="h5 mb-0 font-weight-bold text-gray-800">15</div>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                          <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+        
+                                             
+        
+                                            </div>
+                                            
+                                            </div>    
+                                            <!-- end of row -->
+
+                                            <br>
+
+                                            <div class="row" >
+                                                <div class="col col-sm-6">
+            
+                                                    <div class="card border-left-primary shadow h-100 py-2">
+                                                        <div class="card-body">
+                                                          <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Movies Visit</div>
+                                                              <div class="h5 mb-0 font-weight-bold text-gray-800">8</div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <i class="fas fa-ticket-alt fa-3x"></i>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+            
+                                                      
+            
+                                                      <br>
+                                                </div>
+                                                <!-- end col-sm-6 -->
+            
+                                                
+                                                </div>    
+                                                <!-- end of row -->
+
+                                    
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
+                        <!-- END OF CUSTOM DATA -->
+
         
-        
-        <!-- Pending Requests Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium veniam quia quos placeat eveniet temporibus aliquid laudantium obcaecati 
-            corrupti facilis maxime distinctio ipsum numquam eligendi, officiis porro, eum debitis doloremque odit velit veritatis libero officia.
-             Quam, facilis nihil culpa facere sunt magni autem. Consequuntur, molestias ad. Ea eius quae laboriosam.</p>
+    </div>
+
 </div>
